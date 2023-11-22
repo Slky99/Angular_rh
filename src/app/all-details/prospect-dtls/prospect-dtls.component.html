@@ -1,0 +1,105 @@
+<mat-card class="main-card">
+  <mat-card-header>
+    <mat-card-title> 
+        <div class="header-container" *ngIf="prospect">
+            <h2>Details: {{ prospect.nom }}</h2>
+          </div>
+      
+          
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="dashboard-card-content">
+    <title>  Details</title>
+
+    
+    <div class="main">
+      <div class="client-details" *ngIf="prospect">
+        <!-- Information Box 1 -->
+        <div class="info-box" >
+          <h3>Nom du prospect</h3>
+          <p>{{ prospect?.nom }}</p>
+        </div>
+
+        <!-- Information Box 2 -->
+        <div class="info-box">
+          <h3>Date de Naissance</h3>
+          <p>
+            {{
+              prospect.dateNaissance == null
+                ? "Non renseigné"
+                : prospect.dateNaissance
+            }}
+          </p>
+        </div>
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Carte nationnal d'identité</h3>
+          <p>{{ prospect.cin == null ? "Non renseigné" : prospect.cin }}</p>
+        </div>
+
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Numéro de telephone</h3>
+          <p>0{{ prospect.telephone }}</p>
+        </div>
+
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Adresse mail</h3>
+          <p>{{ prospect.email }}</p>
+        </div>
+
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Secteur D'activité</h3>
+          <p>
+            {{
+              prospect.secteuractivite == null
+                ? "Non renseigné"
+                : prospect.secteuractivite
+            }}
+          </p>
+        </div>
+
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Niveau d'études</h3>
+          <p>{{ prospect.niveauacademique }}</p>
+        </div>
+
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Années d'experience</h3>
+          <p>{{ prospect.anneeexperience }}</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Compétences métier</h3>
+          <p>{{ prospect.competencemetier }}</p>
+        </div>
+
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Formation et certification</h3>
+          <p>{{ prospect.formation }}</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Experience professionnel</h3>
+          <p>{{ prospect.experienceprofessionnelle }}</p>
+        </div>
+
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Compétences Techniques</h3>
+          <p>{{ prospect.competencetechnique }}</p>
+        </div>
+      </div>
+
+      &nbsp;
+      <div class="example-button-row">
+        <button mat-raised-button (click)="OpenEditDialog()" color="primary">Modifier</button> 
+        <button mat-raised-button  color="warn">Supprimer</button></div>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,91 @@
+<div mat-dialog-title>
+  <h1>Ajouter un Consultant</h1>
+</div>
+
+<style>
+  .content {
+    width: 100%;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+</style>
+<div class="main">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Adresse</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="disponibilite"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Disponibilite"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Nom</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="formation"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Formation"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Nom</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="secteuractivite"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Secteuractivite"
+        />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Nom</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="nom"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Nom"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Adresse</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="disponibilite"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Disponibilite"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Nom</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="formation"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Formation"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+  <button mat-raised-button color="warn">Cancel</button>
+</div>
