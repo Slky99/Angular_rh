@@ -1,1 +1,30 @@
+<<<<<<< HEAD
+<div class="container">
+    <mat-grid-list cols="{{ (cardLayout | async)?.columns }}" rowHeight="200px">
+      <mat-grid-tile
+        [colspan]="(cardLayout | async)?.table?.cols"
+        [rowspan]="(cardLayout | async)?.table?.rows || 9"
+      >
+        <app-card title=" ">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <h1 class="mat-h1">Listes des Consultants </h1>
+          </div>
+  
+          <button mat-icon-button color="primary" class="button"
+          style="float: right"   (click)="openDialog()" >
+            <mat-icon>library_add</mat-icon>
+          </button>
+        <app-consultant-data></app-consultant-data> &nbsp;
+        </app-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+=======
 <p>consultant works!</p>
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1

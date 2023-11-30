@@ -3,6 +3,24 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
+<<<<<<< HEAD
+    <mat-toolbar> Menu </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="/dash">+ Dashboard</a>
+      <a mat-list-item href="/pros">+ Prospect</a>
+      <a mat-list-item href="/cons">+ Consultants</a>
+      <a mat-list-item href="/mission">+ Missions</a>
+      <a mat-list-item href="/client">+ Clients</a>
+      <a mat-list-item href="#">- Fournisseurs</a>
+      <a mat-list-item href="/dash">- Salariées</a>
+       <a mat-list-item href="#">- Stagiaires</a> 
+       <a mat-list-item href="#">- Appel d'offres</a> 
+     
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="main">
+=======
     <mat-toolbar> <a   href="/dash">Menu</a></mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="/pros"> Gestion des Prospect</a>
@@ -11,6 +29,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
     <mat-toolbar color="primary">
       <button
         type="button"
@@ -20,8 +39,15 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+<<<<<<< HEAD
+      <span>ITEAM-GRH</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </div>
+=======
       <span>frontend</span>
     </mat-toolbar>
     <router-outlet></router-outlet>
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
     </mat-sidenav-content>
 </mat-sidenav-container>

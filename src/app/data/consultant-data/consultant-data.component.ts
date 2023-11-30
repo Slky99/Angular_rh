@@ -1,0 +1,114 @@
+import { HttpClient } from '@angular/common/http';
+import { Component, Input, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { ConsultantMissionComponent } from '../../dialog/consultant-mission/consultant-mission.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ConsultantdetailsService } from '../../details-service/consultantdetails.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormControl } from '@angular/forms';
+import { MatInput } from '@angular/material/input';
+
+@Component({
+  selector: 'app-consultant-data',
+  templateUrl: './consultant-data.component.html',
+  styleUrl: './consultant-data.component.scss',
+})
+export class ConsultantDataComponent {
+  displayedColumns = [
+    'idtiers',
+    'nom',
+    'adresse',
+    'cin',
+    'profession',
+    'ss',
+    'action',
+    'mis',
+  ];
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild('filterInput') filterInput!: MatInput;
+  dataSource = new MatTableDataSource<any>();
+
+  constructor(
+    private http: HttpClient,
+    private _dialog: MatDialog,
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar,
+    private cons: ConsultantdetailsService,
+    private router: Router
+  ) {}
+
+  consultantid: number = 0;
+  consultant: any;
+  filter = new FormControl('');
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
+  ngOnInit() {
+    this.getAllconsultant();
+    this.filter.valueChanges.subscribe((filterValue) => {
+      filterValue = (filterValue ?? '').trim(); // Remove whitespace
+      this.dataSource.filter = filterValue.toLowerCase();
+    });
+  }
+
+  ConsultantArray: any[] = [];
+  getAllconsultant() {
+    this.http
+      .get('http://localhost:8084/api/consultant/consultant')
+      .subscribe((resudata: any) => {
+        console.log(resudata);
+        this.ConsultantArray = resudata;
+        this.dataSource = new MatTableDataSource(resudata);
+        this.dataSource.paginator = this.paginator;
+      });
+  }
+  applyFilter(filterValue: string) {
+    if (this.dataSource) {
+      // Check if this.dataSource is defined
+      filterValue = filterValue.trim().toLowerCase();
+      this.dataSource.filter = filterValue;
+    }
+  }
+
+  setDelete(data: any) {
+    this.http
+      .delete(
+        'http://localhost:8084/api/consultant/delete' + '/' + data.consultantid,
+        { responseType: 'text' }
+      )
+      .subscribe((resultData: any) => {
+        console.log(resultData);
+        this.snackBar.open('Consultant supprimer', 'Fermer', {
+          duration: 3000,
+        });
+        this.getAllconsultant();
+      });
+  }
+
+  openDialog(consultant: any) {
+    const dialogRef = this._dialog.open(ConsultantMissionComponent, {
+      width: '900px',
+      data: { parent: this, consultant },
+    });
+
+    dialogRef.afterClosed().subscribe((consultantID: number) => {
+      console.log('Dialog closed with result:', consultantID);
+      if (consultantID !== undefined && consultantID !== null) {
+        this.router
+          .navigateByUrl('/', { skipLocationChange: true })
+          .then(() => {
+            this.router.navigate(['/consultant', consultantID]);
+          });
+      } else {
+        console.log('Dialog closed without consultantId');
+      }
+    });
+  }
+}
