@@ -42,8 +42,8 @@ export class ConsultantMissionComponent {
 
   addConsultantToSalarie(consultantId: number, missionId: number) {
     const requestBody = {
-      "consultantid": consultantId, // Make sure the parameter name matches
-      "missionid": missionId,
+      consultantid: consultantId, // Make sure the parameter name matches
+      missionid: missionId,
     };
 
     console.log('Request Body:', requestBody); // Log the requestBody
@@ -53,8 +53,8 @@ export class ConsultantMissionComponent {
       .subscribe({
         next: (response) => {
           console.log('Success:', response);
-
-          this.dialogRef.close();
+          const ConsultantID = requestBody.consultantid;
+          this.dialogRef.close(ConsultantID);
         },
         error: (error) => {
           console.error('Error:', error); 

@@ -1,5 +1,5 @@
 <div mat-dialog-title>
-  <h1>Ajouter un Consultant</h1>
+  <h1>Ajouter un Prospect</h1>
 </div>
 
 <style>
@@ -20,17 +20,59 @@
   <div mat-dialog-content class="content">
     <div class="row">
       <mat-form-field appearance="outline">
-        <mat-label>Adresse</mat-label>
+        <mat-label>Nom</mat-label>
         <input
           matInput
           type="text"
-          [(ngModel)]="disponibilite"
+          [(ngModel)]="nom"
           [ngModelOptions]="{ standalone: true }"
-          placeholder="Disponibilite"
+          placeholder="Nom du prospect"
         />
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Nom</mat-label>
+        <mat-label>Carte National</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="cin"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="CIN"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Telephone</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="telephone"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="GSM"
+        />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Date de naissance </mat-label>
+        <input
+          matInput
+          type="date"
+          [(ngModel)]="dateNaissance"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Date de naissance"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Adresse mail</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="email"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Email"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Formation</mat-label>
         <input
           matInput
           type="text"
@@ -39,44 +81,66 @@
           placeholder="Formation"
         />
       </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Nom</mat-label>
-        <input
-          matInput
-          type="text"
-          [(ngModel)]="secteuractivite"
-          [ngModelOptions]="{ standalone: true }"
-          placeholder="Secteuractivite"
-        />
-      </mat-form-field>
     </div>
     <div class="row">
       <mat-form-field appearance="outline">
-        <mat-label>Nom</mat-label>
+        <mat-label>Compétence métier</mat-label>
         <input
           matInput
           type="text"
-          [(ngModel)]="nom"
+          [(ngModel)]="competencemetier"
           [ngModelOptions]="{ standalone: true }"
-          placeholder="Nom"
+          placeholder="Compétence métier"
         />
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Adresse</mat-label>
+        <mat-label>Niveau académique</mat-label>
         <input
           matInput
           type="text"
-          [(ngModel)]="disponibilite"
+          [(ngModel)]="niveauacademique"
           [ngModelOptions]="{ standalone: true }"
           placeholder="Disponibilite"
         />
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Nom</mat-label>
+        <mat-label>Experience professionnelle</mat-label>
         <input
           matInput
           type="text"
-          [(ngModel)]="formation"
+          [(ngModel)]="experienceprofessionnelle"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Experience professionnelle"
+        />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Secteur D'avtivité</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="secteuractivite"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Secteur d'activité"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Année d'experience</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="anneeexperience"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Année d'experience"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Compétence téchnique</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="competencetechnique"
           [ngModelOptions]="{ standalone: true }"
           placeholder="Formation"
         />

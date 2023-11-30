@@ -1,6 +1,10 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, inject } from '@angular/core';
 import { map } from 'rxjs';
+import { ConsultantDialogAddComponent } from '../../add-dialog/consultant-dialog-add/consultant-dialog-add.component';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-consultant',
@@ -8,6 +12,9 @@ import { map } from 'rxjs';
   styleUrl: './consultant.component.scss'
 })
 export class ConsultantComponent {
+
+
+  constructor(private http: HttpClient, private _dialog: MatDialog, private router: Router){}
 
   private breakpointObserver = inject(BreakpointObserver);
   cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -27,4 +34,20 @@ export class ConsultantComponent {
       };
     })
   );
+
+  openDialog() {
+    const dialogRef = this._dialog.open(ConsultantDialogAddComponent, {
+      width: '900px',  
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      // Handle
+      console.log('Dialog closed with result:', result);
+     /* this.matTableComponent.notifyRefresh();*/
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate(["/cons"]);
+      });
+      
+    });
+  }
 }

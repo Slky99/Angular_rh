@@ -4,7 +4,7 @@
     <mat-label>Consultant ID</mat-label>
     <input
       matInput
-      [(ngModel)]="consultantid"
+      [(ngModel)]="data.consultant.consultantid"
       type="number"
        required
     />
@@ -34,7 +34,7 @@
   &nbsp;&nbsp;&nbsp;&nbsp;<button
     mat-button
     class="custom-primary-button"
-    (click)="addConsultantToSalarie(consultantid, missionid)"
+    (click)="addConsultantToSalarie(data.consultant.consultantid, missionid)"
   >
     Add
   </button>

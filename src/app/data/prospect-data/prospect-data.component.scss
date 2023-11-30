@@ -2,4 +2,9 @@
     background-color: white ;
     color: green;
   }
+  .filter-bar {
+    display: flex;
+     float: right;
+    align-items: right; /* Vertically center items */
+  }
   

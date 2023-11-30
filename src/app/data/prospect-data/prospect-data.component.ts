@@ -14,6 +14,9 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { ConsultantDataComponent } from '../consultant-data/consultant-data.component';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { MatInput } from '@angular/material/input';
+import { FormControl } from '@angular/forms';
+import { FileuploadService } from '../../Docserv/fileupload.service';
 
 @Component({
   selector: 'app-prospect-data',
@@ -24,6 +27,7 @@ import { Router } from '@angular/router';
 export class ProspectDataComponent {
   @Output() dataUpdated: EventEmitter<void> = new EventEmitter<void>();
   private subscription: Subscription | undefined;
+ 
 
   displayedColumns = [
     'idtiers',
@@ -32,31 +36,44 @@ export class ProspectDataComponent {
     'cin',
     'profession',
     'action',
+    'cs',
   ];
- 
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild('filterInput') filterInput!: MatInput;
   dataSource = new MatTableDataSource<any>();
 
+  filter = new FormControl('');
   constructor(
     private http: HttpClient,
     private cdr: ChangeDetectorRef,
-    private snackBar: MatSnackBar , 
-    private router :  Router
-  ) {}
+    private snackBar: MatSnackBar,
+    private router: Router,
+  ) {
+    this.getAllprospect();
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getAllprospect();
+    // Subscribe to changes in the filter control and apply filtering
+    this.filter.valueChanges.subscribe((filterValue) => {
+      filterValue = (filterValue ?? '').trim(); // Remove whitespace
+      this.dataSource.filter = filterValue.toLowerCase();
+    });
   }
 
-  notifyRefresh() {
-    /*this.dataUpdated.emit();
-    console.log('Change Detection Triggered');
-    this.cdr.detectChanges();*/
+  applyFilter(filterValue: string) {
+    if (this.dataSource || this.ProspectArray) {
+      // Check if this.dataSource is defined
+      filterValue = filterValue.trim().toLowerCase();
+      this.dataSource.filter = filterValue;
+      this.ProspectArray.filter;
+    }
   }
 
   ProspectArray: any[] = [];
@@ -87,7 +104,7 @@ export class ProspectDataComponent {
   }
 
   convertToConsultant(idtiers: number): void {
-    const url =  `http://localhost:8084/api/prospect/convert/${idtiers}`;
+    const url = `http://localhost:8084/api/prospect/convert/${idtiers}`;
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
@@ -96,7 +113,6 @@ export class ProspectDataComponent {
       .post<ConsultantDataComponent>(url, {})
       .subscribe({
         next: (consultant: ConsultantDataComponent) => {
-          
           console.log('Converted to consultant:', consultant);
           const consultantId = consultant.consultantid;
           this.router.navigate(['/consultant', consultantId]);
@@ -113,4 +129,8 @@ export class ProspectDataComponent {
       this.subscription.unsubscribe();
     }
   }
+
+
+
+
 }

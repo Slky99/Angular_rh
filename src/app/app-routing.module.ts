@@ -10,6 +10,7 @@ import { AuthServiceService } from './Auth/auth-service.service';
 import { AuthGuard } from './Auth/AuthGuard.guard';
 import { ConsultantDtlsComponent } from './all-details/consultant-dtls/consultant-dtls.component';
 import { MissionComponent } from './model/mission/mission.component';
+import { ClientComponent } from './model/client/client.component';
 
 export const authGuard = 'CanActivateTeam';
 const routes: Routes = [
@@ -22,7 +23,7 @@ const routes: Routes = [
   { path: 'prospect/:id', component: ProspectDtlsComponent },
   { path: 'consultant/:id', component: ConsultantDtlsComponent },
  {  path: 'mission', component:MissionComponent },
-
+ {  path: 'client', component: ClientComponent },
   { path: 'login', component: LoginPageComponent },
 ];
 

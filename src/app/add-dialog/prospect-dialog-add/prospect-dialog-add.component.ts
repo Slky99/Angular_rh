@@ -9,16 +9,34 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './prospect-dialog-add.component.scss',
 })
 export class ProspectDialogAddComponent {
-  constructor(private http: HttpClient,
-     private snackBar: MatSnackBar, private dialogRef: MatDialogRef<ProspectDialogAddComponent>) {}
+  constructor(
+    private http: HttpClient,
+    private snackBar: MatSnackBar,
+    private dialogRef: MatDialogRef<ProspectDialogAddComponent>
+  ) {}
   prospect: any;
   nom: string = '';
-  adresse : string ='' ;
-  disponibilite : string ='' ;
-  formation : string ='' ;
-  secteuractivite : string ='';
-  langue : string ='';
-  
+  cin: string = '';
+  telephone: number = 0;
+  dateNaissance!: Date;
+  adresse: string = '';
+  formation: string = '';
+  secteuractivite: string = '';
+  competencemetier: string = '';
+  niveauacademique: string = '';
+  competencetechnique: string = '';
+  langue: string = '';
+  paysresidence: string = '';
+  anneeexperience: number = 0;
+  profession: string = '';
+  email: string = '';
+  sexe: string = '';
+  disponibilite: string = '';
+  experienceprofessionnelle: string = '';
+  status: string = 'Prospect';
+  motcle: string = '';
+  majcv!: Date;
+
   currentID = '';
   data: any;
 
@@ -28,30 +46,26 @@ export class ProspectDialogAddComponent {
 
   register() {
     let bodyData = {
-      /* "dateNaissance" : this.dateNaissance,
-      "disponibilite" : this.disponibilite,
-      "formation" : this.formation,
-      "secteuractivite" : this.secteuractivite,
-      "langue" : this.langue,
-      "cin" : this.cin,
-      "majcv" : this.majcv,
-      "paysresidence" : this.paysresidence,
-      "anneeexperience" : this.anneeexperience,
-      "telephone" : this.telephone,
-      "profession" : this.profession,
-      "motcle" : this.motcle,
-      "email" : this.email,
-     
-      "sexe" : this.sexe,
-      "competencemetier" : this.competencemetier,
-      "niveauacademique" : this.niveauacademique,
-      "competencetechnique" : this.competencetechnique,
-      "experienceprofessionnelle" : this.experienceprofessionnelle 
-      */
-      "nom": this.nom,
-      "disponibilite" : this.disponibilite,
-      "formation" : this.formation,
-      "secteuractivite" : this.secteuractivite,
+      nom :this.nom ,
+      dateNaissance: this.dateNaissance,
+      disponibilite: this.disponibilite,
+      formation: this.formation,
+      secteuractivite: this.secteuractivite,
+      langue: this.langue,
+      cin: this.cin,
+      majcv: this.majcv,
+      paysresidence: this.paysresidence,
+      anneeexperience: this.anneeexperience,
+      telephone: this.telephone,
+      profession: this.profession,
+      motcle: this.motcle,
+      email: this.email,
+      status: this.status,
+      sexe: this.sexe,
+      competencemetier: this.competencemetier,
+      niveauacademique: this.niveauacademique,
+      competencetechnique: this.competencetechnique,
+      experienceprofessionnelle: this.experienceprofessionnelle,
     };
 
     this.http
@@ -68,7 +82,7 @@ export class ProspectDialogAddComponent {
   }
 
   save() {
-    if (this.currentID == '' || this.nom =='') {
+    if (this.currentID == '' || this.nom == '') {
       this.register();
     } else {
       console.log('Erreur insertion');

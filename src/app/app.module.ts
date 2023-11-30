@@ -35,7 +35,7 @@ import { MissionComponent } from './model/mission/mission.component';
 import { ProspectDataComponent } from './data/prospect-data/prospect-data.component';
 import { ProspectDtlsComponent } from './all-details/prospect-dtls/prospect-dtls.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProspectDialogComponent } from './dialog/prospect-dialog/prospect-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -48,6 +48,12 @@ import { ConsultantDataComponent } from './data/consultant-data/consultant-data.
 import { ConsultantDtlsComponent } from './all-details/consultant-dtls/consultant-dtls.component';
 import { MissionDataComponent } from './data/mission-data/mission-data.component';
 import { ConsultantMissionComponent } from './dialog/consultant-mission/consultant-mission.component';
+import { ConsultantDialogAddComponent } from './add-dialog/consultant-dialog-add/consultant-dialog-add.component';
+import { MissionDialogAddComponent } from './add-dialog/mission-dialog-add/mission-dialog-add.component';
+import { ClientDataComponent } from './data/client-data/client-data.component';
+import { DashDataComponent } from './data/dash-data/dash-data.component';
+import { ClienDialogAddComponent } from './add-dialog/clien-dialog-add/clien-dialog-add.component';
+import { NewpageComponent } from './newpage/newpage.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +81,12 @@ import { ConsultantMissionComponent } from './dialog/consultant-mission/consulta
     ConsultantDtlsComponent,
     MissionDataComponent,
     ConsultantMissionComponent,
+    ConsultantDialogAddComponent,
+    MissionDialogAddComponent,
+    ClientDataComponent,
+    DashDataComponent,
+    ClienDialogAddComponent,
+    NewpageComponent,
   ],
   imports: [
     BrowserModule,
@@ -100,6 +112,7 @@ import { ConsultantMissionComponent } from './dialog/consultant-mission/consulta
     MatPaginatorModule,
     MatChipsModule,
     MatSortModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide: 'CanActivateTeam',
