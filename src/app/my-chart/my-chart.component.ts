@@ -2,7 +2,10 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
  
  
 import { Chart } from 'chart.js';
+<<<<<<< HEAD
 import { ChartService } from '../ChartServ/chart.service';
+=======
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 
 @Component({
   selector: 'app-my-chart',
@@ -11,6 +14,7 @@ import { ChartService } from '../ChartServ/chart.service';
 })
 export class MyChartComponent implements OnInit{
  
+<<<<<<< HEAD
  @ViewChild('chartCanvas2') chartCanvas2!: ElementRef;
   constructor(private chartService: ChartService) { }
 
@@ -73,6 +77,35 @@ createChart2() {
     });
   }
 }
+=======
+
+  constructor() { }
+
+   
+   
+  ngOnInit(): void {
+   
+    var myChart = new Chart("myChart", {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 
 
   }

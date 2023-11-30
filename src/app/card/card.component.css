@@ -6,7 +6,11 @@
  }
  
  .dashboard-card {
+<<<<<<< HEAD
      position: absolute;
+=======
+    position: absolute;
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
     top: 15px;
     left: 15px;
     right: 15px;

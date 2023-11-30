@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import {Chart} from 'chart.js';
 import { ChartService } from '../ChartServ/chart.service';
+=======
+import { Component } from '@angular/core';
+import {Chart} from 'chart.js';
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 
 @Component({
   selector: 'app-my-chart3',
@@ -9,16 +14,20 @@ import { ChartService } from '../ChartServ/chart.service';
 })
 export class MyChart3Component {
 
+<<<<<<< HEAD
   @ViewChild('chartCanvas3') chartCanvas3!: ElementRef;
   
   chartData3: any[] = [];
   
   constructor(private chartService: ChartService) { }
 
+=======
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 
   
    
   ngOnInit(): void {
+<<<<<<< HEAD
     this.chartService.getClientDatda().subscribe((data) => {
       console.log(data);
       this.chartData3 = data;
@@ -54,6 +63,18 @@ createChart3(data : any []): void {
         ],
         borderWidth: 1,
        }]
+=======
+   
+    var myChart3 = new Chart("myChart3", {
+    type: 'radar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
     },
     options: {
       scales: {
@@ -65,6 +86,10 @@ createChart3(data : any []): void {
   });
 }
 
+<<<<<<< HEAD
 
 } 
 
+=======
+}
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1

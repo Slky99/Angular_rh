@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, inject } from '@angular/core';
 import { map } from 'rxjs';
 import { ClienDialogAddComponent } from '../../add-dialog/clien-dialog-add/clien-dialog-add.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+=======
+import { Component } from '@angular/core';
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 
 @Component({
   selector: 'app-client',
@@ -12,6 +16,7 @@ import { Router } from '@angular/router';
 })
 export class ClientComponent {
 
+<<<<<<< HEAD
   constructor (
     private _dialog: MatDialog, 
     private router : Router
@@ -52,4 +57,6 @@ export class ClientComponent {
     });
   }
 
+=======
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 }

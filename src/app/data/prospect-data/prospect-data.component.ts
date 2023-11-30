@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+<<<<<<< HEAD
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -17,10 +18,17 @@ import { Router } from '@angular/router';
 import { MatInput } from '@angular/material/input';
 import { FormControl } from '@angular/forms';
 import { FileuploadService } from '../../Docserv/fileupload.service';
+=======
+import { Component, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 
 @Component({
   selector: 'app-prospect-data',
   templateUrl: './prospect-data.component.html',
+<<<<<<< HEAD
   styleUrl: './prospect-data.component.scss',
   changeDetection: ChangeDetectionStrategy.Default,
 })
@@ -53,11 +61,26 @@ export class ProspectDataComponent {
   ) {
     this.getAllprospect();
   }
+=======
+  styleUrl: './prospect-data.component.scss'
+})
+export class ProspectDataComponent {
+
+
+  displayedColumns = ["idtiers", "nom","adresse","cin","profession" ];
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  dataSource = new MatTableDataSource <any>;
+
+  constructor(private http: HttpClient){}
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
+<<<<<<< HEAD
   ngOnInit(): void {
     this.getAllprospect();
     // Subscribe to changes in the filter control and apply filtering
@@ -133,4 +156,22 @@ export class ProspectDataComponent {
 
 
 
+=======
+  ngOnInit(){
+    this.getAllprospect();
+  }
+
+  ProspectArray : any[] = [];
+  getAllprospect(){
+
+    this.http.get("http://localhost:8084/api/prospect/prospect")
+    .subscribe((resudata:any) => 
+    {
+    console.log(resudata);
+    this.ProspectArray = resudata ;
+    this.dataSource = new MatTableDataSource(resudata);
+    this.dataSource.paginator = this.paginator;
+    });
+    }
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 }

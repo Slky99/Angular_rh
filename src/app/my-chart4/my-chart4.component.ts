@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ChartService } from '../ChartServ/chart.service';
+=======
+import { Component } from '@angular/core';
+import {Chart} from 'chart.js';
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 
 @Component({
   selector: 'app-my-chart4',
   templateUrl: './my-chart4.component.html',
+<<<<<<< HEAD
   styleUrl: './my-chart4.component.scss',
 })
 export class MyChart4Component {
@@ -64,4 +70,34 @@ export class MyChart4Component {
       });
     }
   }
+=======
+  styleUrl: './my-chart4.component.scss'
+})
+export class MyChart4Component {
+
+
+  
+   
+  ngOnInit(): void {
+   
+    var myChart4 = new Chart("myChart4", {
+    type: 'pie',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 }

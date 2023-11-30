@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, inject } from '@angular/core';
 import { map } from 'rxjs';
@@ -5,6 +6,9 @@ import { MissionDialogAddComponent } from '../../add-dialog/mission-dialog-add/m
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
+=======
+import { Component } from '@angular/core';
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 
 @Component({
   selector: 'app-mission',
@@ -13,6 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class MissionComponent {
 
+<<<<<<< HEAD
   constructor(private http: HttpClient, private _dialog: MatDialog, private router: Router){}
   
   private breakpointObserver = inject(BreakpointObserver);
@@ -50,4 +55,6 @@ export class MissionComponent {
     });
   }
 
+=======
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 }

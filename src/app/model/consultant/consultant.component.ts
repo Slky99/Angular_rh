@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, inject } from '@angular/core';
 import { map } from 'rxjs';
@@ -5,6 +6,9 @@ import { ConsultantDialogAddComponent } from '../../add-dialog/consultant-dialog
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
+=======
+import { Component } from '@angular/core';
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 
 @Component({
   selector: 'app-consultant',
@@ -13,6 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ConsultantComponent {
 
+<<<<<<< HEAD
 
   constructor(private http: HttpClient, private _dialog: MatDialog, private router: Router){}
 
@@ -50,4 +55,6 @@ export class ConsultantComponent {
       
     });
   }
+=======
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 }

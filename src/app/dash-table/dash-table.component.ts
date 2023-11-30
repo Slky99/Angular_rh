@@ -22,6 +22,7 @@ export class DashTableComponent implements OnInit, AfterViewInit {
   displayedColumns = ["id", "featuers","featuersid","description" ];
 
   constructor(private pageservice: Table1Service) {  this.data = [];}
+<<<<<<< HEAD
   
   ngAfterViewInit() {
     this.datasource.paginator =this.paginator;
@@ -35,12 +36,18 @@ export class DashTableComponent implements OnInit, AfterViewInit {
       console.log('MatPaginator or MatSort not available yet');
     }
   }
+=======
+
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
   ngOnInit() {
     this.pageservice.getTestData().subscribe((data: any[]) => {
       console.log('Received data:', data);
       this.data = data;
       this.datasource = new DashTableDataSource(this.pageservice, this.data);
+<<<<<<< HEAD
      
+=======
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 
       if (this.paginator && this.sort) {
         this.datasource.setPaginatorAndSort(this.paginator, this.sort);
@@ -57,5 +64,18 @@ export class DashTableComponent implements OnInit, AfterViewInit {
     });
   }
 
+<<<<<<< HEAD
  
+=======
+  ngAfterViewInit() {
+    // Check if MatPaginator and MatSort are available
+    if (this.paginator && this.sort) {
+      if (this.datasource) {
+        this.datasource.setPaginatorAndSort(this.paginator, this.sort);
+      }
+    } else {
+      console.log('MatPaginator or MatSort not available yet');
+    }
+  }
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 }

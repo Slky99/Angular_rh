@@ -3,7 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+<<<<<<< HEAD
 import { MatInputModule } from '@angular/material/input';
+=======
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -22,7 +25,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { HttpClientModule } from '@angular/common/http';
+<<<<<<< HEAD
 import { MatChipsModule } from '@angular/material/chips';
+=======
+import {MatChipsModule} from '@angular/material/chips';
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 import { MiniCardComponent } from './mini-card/mini-card.component';
 import { MyChartComponent } from './my-chart/my-chart.component';
 import { MyChart2Component } from './my-chart2/my-chart2.component';
@@ -33,6 +40,7 @@ import { ConsultantComponent } from './model/consultant/consultant.component';
 import { ClientComponent } from './model/client/client.component';
 import { MissionComponent } from './model/mission/mission.component';
 import { ProspectDataComponent } from './data/prospect-data/prospect-data.component';
+<<<<<<< HEAD
 import { ProspectDtlsComponent } from './all-details/prospect-dtls/prospect-dtls.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -54,6 +62,8 @@ import { ClientDataComponent } from './data/client-data/client-data.component';
 import { DashDataComponent } from './data/dash-data/dash-data.component';
 import { ClienDialogAddComponent } from './add-dialog/clien-dialog-add/clien-dialog-add.component';
 import { NewpageComponent } from './newpage/newpage.component';
+=======
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 
 @NgModule({
   declarations: [
@@ -61,7 +71,10 @@ import { NewpageComponent } from './newpage/newpage.component';
     NavComponent,
     DashComponent,
     CardComponent,
+<<<<<<< HEAD
 
+=======
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
     DashTableComponent,
     MiniCardComponent,
     MyChartComponent,
@@ -72,6 +85,7 @@ import { NewpageComponent } from './newpage/newpage.component';
     ConsultantComponent,
     ClientComponent,
     MissionComponent,
+<<<<<<< HEAD
     ProspectDataComponent,
     ProspectDtlsComponent,
     ProspectDialogComponent,
@@ -87,11 +101,15 @@ import { NewpageComponent } from './newpage/newpage.component';
     DashDataComponent,
     ClienDialogAddComponent,
     NewpageComponent,
+=======
+    ProspectDataComponent
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+<<<<<<< HEAD
     CommonModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
@@ -101,6 +119,11 @@ import { NewpageComponent } from './newpage/newpage.component';
     MatButtonModule,
     MatDialogModule,
     MatSnackBarModule,
+=======
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
     MatSidenavModule,
     MatIconModule,
     MatListModule,
@@ -112,6 +135,7 @@ import { NewpageComponent } from './newpage/newpage.component';
     MatPaginatorModule,
     MatChipsModule,
     MatSortModule,
+<<<<<<< HEAD
     ReactiveFormsModule
   ],
   providers: [{
@@ -122,3 +146,11 @@ import { NewpageComponent } from './newpage/newpage.component';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+=======
+    
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1

@@ -56,12 +56,18 @@ export class DashTableDataSource extends DataSource<any[]> {
         this.sort.active,
         this.sort.direction
       )),
+<<<<<<< HEAD
       
+=======
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
       catchError(() => of([])),  // Handle errors gracefully
       map((pageData) => pageData.content)
       
     );
+<<<<<<< HEAD
   
+=======
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
    }
 
   disconnect(): void {

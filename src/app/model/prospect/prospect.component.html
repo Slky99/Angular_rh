@@ -1,4 +1,5 @@
 <div class="container">
+<<<<<<< HEAD
   <mat-grid-list cols="{{ (cardLayout | async)?.columns }}" rowHeight="200px">
     <mat-grid-tile
       [colspan]="(cardLayout | async)?.table?.cols"
@@ -25,3 +26,17 @@
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+=======
+    <h1 class="mat-h1">Prospection </h1>
+
+    <button class="Add">Add</button>
+    <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+    <mat-grid-tile [colspan]="( cardLayout | async )?.table?.cols"
+     [rowspan]="( cardLayout | async )?.table?.rows || 9">
+     <app-card title="Latest ">
+        <app-prospect-data></app-prospect-data>
+    </app-card>
+    </mat-grid-tile>
+</mat-grid-list>
+</div>
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1

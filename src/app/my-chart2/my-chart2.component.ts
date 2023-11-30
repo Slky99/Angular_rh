@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ChartService } from '../ChartServ/chart.service';
+=======
+import { Component, OnInit } from '@angular/core';
+import { Chart } from 'chart.js';
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 
 @Component({
   selector: 'app-my-chart2',
@@ -9,15 +14,21 @@ import { ChartService } from '../ChartServ/chart.service';
 })
 export class MyChart2Component implements OnInit{
 
+<<<<<<< HEAD
   @ViewChild('chartCanvas3') chartCanvas3!: ElementRef;
   
   chartData3: any[] = [];
   
   constructor(private chartService: ChartService) { }
+=======
+  
+  constructor() { }
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 
    
    
   ngOnInit(): void {
+<<<<<<< HEAD
     this.chartService.getServicesDatda().subscribe((data) => {
       console.log(data);
       this.chartData3 = data;
@@ -52,6 +63,16 @@ createChart3(data : any []): void {
           '#ffd700',
           '#4682b4',
         ],
+=======
+   
+    var myChart2 = new Chart("myChart2", {
+    type: 'line',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
         borderWidth: 1
       }]
     },
@@ -64,5 +85,8 @@ createChart3(data : any []): void {
     }
   });
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> f1c199fb000fc4c4eecf682d9923dd886b4283f1
 }
