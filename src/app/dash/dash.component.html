@@ -1,0 +1,55 @@
+<!--dash.component.html-->
+<div class="grid-container">
+  <h1 class="mat-h1">Tableau de bord </h1>
+  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+    <!--Mini Cards
+    <mat-grid-tile *ngFor="let i of [1, 2, 3, 4]" [colspan]="( cardLayout | async )?.miniCard?.cols"
+      [rowspan]="( cardLayout | async )?.miniCard?.rows">
+      <app-card class="indigo"  ><div> 
+        <app-mini-card></app-mini-card>
+       </div>
+      
+    </app-card>
+    </mat-grid-tile>-->
+    <!--Charts *ngFor="let i of [5, 6, 7, 8]"-->
+    <mat-grid-tile   [colspan]="( cardLayout | async )?.chart?.cols"
+      [rowspan]="( cardLayout | async )?.chart?.rows"  class="app-card">
+      <app-card title="Prospect par secteur d'activité">
+        <div>
+        <app-my-chart></app-my-chart>
+      </div>
+      </app-card>
+    </mat-grid-tile>
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.chart?.cols"
+      [rowspan]="( cardLayout | async )?.chart?.rows" class="app-card"> 
+      <app-card title="CV mis a jours par années">
+        <div>
+          <app-my-chart4></app-my-chart4>
+        </div>
+      </app-card>
+    </mat-grid-tile>
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.chart?.cols"
+      [rowspan]="( cardLayout | async )?.chart?.rows" class="app-card">
+      <app-card title="Nombres de missions par clients" >
+        <div>
+          <app-my-chart3></app-my-chart3>
+        </div>
+      </app-card>
+    </mat-grid-tile>
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.chart?.cols"
+    [rowspan]="( cardLayout | async )?.chart?.rows" class="app-card">
+    <app-card title="Nombres de jours totales par consultant">
+      <div>
+        <app-my-chart2></app-my-chart2>
+      </div>
+    </app-card>
+  </mat-grid-tile>
+    <!--Table-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.table?.cols"
+     [rowspan]="( cardLayout | async )?.table?.rows || 9" class="app-card">
+     <app-card title="Prospect a relancées">
+      <app-dash-data></app-dash-data>
+    </app-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+ </div>

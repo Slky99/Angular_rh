@@ -1,0 +1,379 @@
+<div class="container">
+  <mat-grid-list cols="{{ (cardLayout | async)?.columns }}" rowHeight="200px">
+    <mat-grid-tile
+      [colspan]="(cardLayout | async)?.table?.cols"
+      [rowspan]="(cardLayout | async)?.table?.rows || 9"
+    >
+      <app-card title=" ">
+        
+        <!-- <button class="action-button"><a href="/appe">Show</a> </button> -->
+        <!-- <button class="btn" (click)="Show()">Show</button> -->
+        <button class="btn" routerLink="/appe">Show</button>
+
+
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <h1 class="mat-h1">Nouveau appel d'offres</h1>
+          <!-- <h3 class="mat-h1">veuillez remplir le formulaire d'appel d'offres</h3> -->
+        </div>
+        <style>
+          .content {
+            width: 100%;
+          }
+
+          .row {
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .mat-form-field {
+            width: 100%;
+          }
+        </style>
+        <div class="main">
+          <div mat-dialog-content class="content">
+            <div class="row">
+              <mat-form-field appearance="outline">
+                <mat-label>References de missions</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="missions"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Mission"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Identifient Client</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  [(ngModel)]="client"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="ID Client"
+                />
+              </mat-form-field>
+
+              <!-- <mat-form-field appearance="outline">
+                <mat-label>Nom du client </mat-label>
+                <input matInput
+                 type="text"
+                 [(ngModel)]="consultation_date"
+                 [ngModelOptions]="{ standalone: true }"
+                 placeholder="Client" />
+              </mat-form-field> -->
+
+              <mat-form-field appearance="outline">
+                <mat-label>Date de Consultation</mat-label>
+                <input
+                  matInput
+                  type="date"
+                  [(ngModel)]="consultation_date"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Date de Consultation"
+                />
+              </mat-form-field>
+
+              <!-- <mat-form-field appearance="outline">
+                <mat-label>Dossier Administratif</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="D_administratif"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Dossier Administratif"
+                />
+              </mat-form-field> -->
+              <mat-form-field appearance="fill">
+                <mat-label>Dossier Administratif</mat-label>
+                <mat-select [(ngModel)]="D_administratif">
+                  <mat-option [value]=1>Disponible</mat-option>
+                  <mat-option [value]=0>Non Disponible</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <!-- <mat-form-field appearance="outline">
+                <mat-label>Dossier Technique</mat-label>
+                <input matInput 
+                type="text" 
+                [(ngModel)]="consultation_date"
+                [ngModelOptions]="{ standalone: true }"
+                placeholder="Dossier Technique" />
+              </mat-form-field> -->
+
+              <!-- <mat-form-field appearance="outline">
+                <mat-label>Dossier Financier</mat-label>
+                <input matInput
+                 type="text"
+                 [(ngModel)]="D_financier"
+                [ngModelOptions]="{ standalone: true }"
+                  placeholder="Dossier Financier" />
+              </mat-form-field>  -->
+
+                 <!-- <mat-checkbox 
+                  [(ngModel)]="D_financier" 
+                  >Dossier Financier
+                  </mat-checkbox> -->
+                  <mat-form-field appearance="fill">
+                    <mat-label>Dossier Financier</mat-label>
+                    <mat-select [(ngModel)]="D_financier">
+                      <mat-option [value]=1>Disponible</mat-option>
+                      <mat-option [value]=0>Non Disponible</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  
+                  
+ 
+              <!-- <mat-form-field appearance="outline">
+                <mat-label>CV version ITEAM</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="Cv_formater"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="CV formater"
+                />
+              </mat-form-field> -->
+              <mat-form-field appearance="fill">
+                <mat-label>CV version ITEAM</mat-label>
+                <mat-select [(ngModel)]="Cv_formater">
+                  <mat-option [value]=1>Disponible</mat-option>
+                  <mat-option [value]=0>Non Disponible</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Consultation</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="consultation"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Consultation"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Limite Soumission</mat-label>
+                <input
+                  matInput
+                  type="date"
+                  [(ngModel)]="limite_soumission"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Limite Soumission"
+                />
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="outline">
+                <mat-label>Consultant</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="Consultant"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Consultant"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Date Sollicitation</mat-label>
+                <input
+                  matInput
+                  type="date"
+                  [(ngModel)]="date_solicit"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Date Sollicitation"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Canal de Sollicitation</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="canal_solicit"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Canal de Sollicitation"
+                />
+              </mat-form-field>
+
+              <!-- <mat-form-field appearance="outline">
+                <mat-label>Soumission</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="soumission"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Soumission"
+                />
+              </mat-form-field> -->
+
+              <mat-form-field appearance="fill">
+                <mat-label>Soumission</mat-label>
+                <mat-select [(ngModel)]="soumission">
+                  <mat-option [value]=1>Disponible</mat-option>
+                  <mat-option [value]=0>Non Disponible</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="outline">
+                <mat-label>Commentaire Sollicitation</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="soumi_desc"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Commentaire Sollicitation"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>TJM</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  [(ngModel)]="TJM"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="TJM"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Disponibilité</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="Disponibilite"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Disponibilité"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Alerte Relance Candidature (Client)</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="rl_client"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Alerte Relance Candidature"
+                />
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="outline">
+                <mat-label>Relance Client après Candidature</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="rl_aft_client"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Relance Client après Candidature"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Date Entretien</mat-label>
+                <input
+                  matInput
+                  type="date"
+                  [(ngModel)]="Entretien"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Date Entretien"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Appel Consultant pour entretien</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="appl_entretien"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Appel Consultant pour entretien"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Alerte relance après Entretien (Client)</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="alrt_entretien"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Alerte relance après Entretien Client"
+                />
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <mat-form-field appearance="outline">
+                <mat-label>Relance après Entretien</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="rl_aft_entretien"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Relance après Entretien"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Sort Entretien</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="sort_entretien"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Sort Entretien"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Notification Candidat</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  [(ngModel)]="notif_condidat"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Notification Candidat"
+                />
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Interlocuteur (Client) </mat-label>
+                <input matInput
+                 type="text" 
+                 [(ngModel)]="cl_interlocu"
+                 [ngModelOptions]="{ standalone: true }"
+                 placeholder="Interlocuteur Client " />
+              </mat-form-field>
+            </div>
+             
+          </div>
+          <div mat-dialog-actions class="action">
+            <button mat-raised-button color="primary" (click)="save()">
+              Save</button
+            >&nbsp;
+            <button mat-raised-button color="warn">Cancel</button>
+          </div>
+        </div>
+        <router-outlet></router-outlet>
+      </app-card>
+    </mat-grid-tile>
+    
+  </mat-grid-list>
+</div>

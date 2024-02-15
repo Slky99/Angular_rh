@@ -1,0 +1,195 @@
+<mat-card class="main-card">
+  <mat-card-header>
+    <mat-card-title>
+      <div class="header-container" *ngIf="prospect">
+        <h2 style="display: inline-block; margin-right: 700px">
+          Details: {{ prospect.nom }}
+        </h2>
+        <!-- <div *ngIf="prospect"
+          style="
+            display: inline-block;
+            border: 2px solid #3f51b5;
+            border-radius: 3px;
+            padding: 5px;
+            background-color: #3f51b5;
+          "
+        >
+          <h2
+            style="
+              display: inline-block;
+              margin: 0;
+              color: white;
+              position: fixed;
+            "
+          > {{ prospect.nom }}
+           </h2>
+        </div> -->
+      </div>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="dashboard-card-content">
+    <title>Details</title>
+
+    <div class="main">
+      <div class="client-details" *ngIf="prospect">
+        <!-- Information Box 1 -->
+        <div class="info-box">
+          <h3>
+            <span><strong>Nom du prospect</strong></span>
+          </h3>
+          <p>{{ prospect?.nom }}</p>
+        </div>
+
+        <!-- Information Box 2 -->
+        <div class="info-box">
+          <h3>Date de Naissance</h3>
+          <p>
+            {{
+              prospect.dateNaissance == null
+                ? "Non renseigné"
+                : (prospect.dateNaissance | date : "dd/MM/yyyy")
+            }}
+          </p>
+        </div>
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Carte nationnal d'identité</h3>
+          <p>{{ prospect.cin == "" ? "Non renseigné" : prospect.cin }}</p>
+        </div>
+
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Numéro de telephone</h3>
+          <p>0{{ prospect.telephone }}</p>
+        </div>
+
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Adresse mail</h3>
+          <p>{{ prospect.email == null ? "Non renseigné" : prospect.email }}</p>
+        </div>
+
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Secteur D'activité</h3>
+          <p>
+            {{
+              prospect.secteuractivite == null
+                ? "Non renseigné"
+                : prospect.secteuractivite
+            }}
+          </p>
+        </div>
+
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Niveau d'études</h3>
+          <p>
+            {{
+              prospect.niveauacademique == ""
+                ? "Non renseigné"
+                : prospect.niveauacademique
+            }}
+          </p>
+        </div>
+
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Années d'experience</h3>
+          <p>
+            {{
+              prospect.anneeexperience == ""
+                ? "Non renseigné"
+                : prospect.anneeexperience
+            }}
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h3>Compétences métier</h3>
+          <p>
+            {{
+              prospect.competencemetier == ""
+                ? "Non renseigné"
+                : prospect.competencemetier
+            }}
+          </p>
+        </div>
+
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Formation et certification</h3>
+          <p>
+            {{
+              prospect.formation == "" ? "Non renseigné" : prospect.formation
+            }}
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h3>Experience professionnel</h3>
+          <p>
+            {{
+              prospect.experienceprofessionnelle == ""
+                ? "Non renseigné"
+                : prospect.experienceprofessionnelle
+            }}
+          </p>
+        </div>
+
+        <!-- Information Box 3 -->
+        <div class="info-box">
+          <h3>Compétences Techniques</h3>
+          <p>
+            {{
+              prospect.competencetechnique == ""
+                ? "Non renseigné"
+                : prospect.competencetechnique
+            }}
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h3>Mot Clé</h3>
+          <p>{{ prospect.motcle == "" ? "Non renseigné" : prospect.motcle }}</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Langues</h3>
+          <p>{{ prospect.langue == "" ? "Non renseigné" : prospect.langue }}</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Derniére communication</h3>
+          <p>
+            {{
+              prospect.majcv == ""
+                ? "Non renseigné"
+                : (prospect.majcv | date : "dd/yyyy")
+            }}
+          </p>
+        </div>
+      </div>
+
+      &nbsp;
+      <div class="example-button-row">
+        <button mat-raised-button (click)="OpenEditDialog()" color="primary">
+          Modifier
+        </button>
+        <button mat-raised-button color="warn" (click)="generate()">
+          Génerer CV
+        </button>
+      </div>
+      <div class="client-details" *ngIf="prospect">
+        <!-- Information Box 1 -->
+        <div class="info-box">
+          <h3>  Télecharger le CV du prospect</h3>
+          <input  type="file" (change)="onFileSelected($event)" />
+          <button mat-raised-button color="warn" (click)="uploadFile()">
+            Télecharger le CV
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

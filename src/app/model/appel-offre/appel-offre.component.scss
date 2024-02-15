@@ -1,0 +1,31 @@
+.action{
+    margin-right: 74%;
+    position: absolute;
+    
+
+}
+// .btn{
+//     margin-left: 74%;
+//     position: relative;
+// }
+
+
+.btn {
+   
+    padding: 10px 20px; // Adjust padding to resize the button
+    font-size: 16px;   // Adjust font size
+    background-color: #3f51b5; // Example background color
+    color: #ffffff;     // Example text color
+    border: none;       // Remove border if not needed
+    cursor: pointer;    // Add cursor pointer for better user experience
+    margin-left: auto;
+    border: 2px solid #ffffff;
+  
+    // Hover styles (optional)
+    &:hover {
+      background-color: #ffffff; // Example hover background color
+      color: #3f51b5;
+      border-color: #3f51b5;
+    }
+  }
+  
